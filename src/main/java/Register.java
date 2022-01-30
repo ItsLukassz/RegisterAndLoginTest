@@ -49,7 +49,6 @@ public class Register {
         namefield.sendKeys(firstname + " " + lastname);
 
         WebElement usernamefield = browser.findElement(By.id(UsernameFieldID));
-
         usernamefield.sendKeys(firstname + "_GamerxXx");
 
         WebElement emailfield = browser.findElement(By.id(EmailFieldId));
@@ -67,9 +66,11 @@ public class Register {
         builder.sendKeys(Keys.SPACE).perform();
     }
     public static boolean confirmRegistration() throws InterruptedException {
+
         WebElement click = browser.findElement(By.xpath("//button[contains(.,'Create Account')]"));
-        JavascriptExecutor executor = (JavascriptExecutor) browser;
+        JavascriptExecutor executor = browser;
         executor.executeScript("arguments[0].click();", click);
+
         boolean success;
         Thread.sleep(5000);
         try {

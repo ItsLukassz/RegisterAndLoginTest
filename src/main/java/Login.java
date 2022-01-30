@@ -36,18 +36,21 @@ public class Login {
     public static void browserClose(){
         browser.close();
     }
+
     public static void PopulateFields(String Email, String Password){
+
         WebElement EmailField = browser.findElement(By.id(emailFieldID));
         EmailField.sendKeys(Email);
 
         WebElement PasswordField = browser.findElement(By.id(passwordFieldID));
-
         PasswordField.sendKeys(Password);
     }
     public static boolean confirmRegistration() throws InterruptedException {
+
         WebElement click = browser.findElement(By.xpath("//*[@id=\"login\"]/button"));
-        JavascriptExecutor executor = (JavascriptExecutor) browser;
+        JavascriptExecutor executor = browser;
         executor.executeScript("arguments[0].click();", click);
+
         boolean success;
         Thread.sleep(5000);
         try {
